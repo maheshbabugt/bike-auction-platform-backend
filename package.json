@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "Backend API for the Bike Auction Platform",
   "main": "dist/server.js",
-  "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc && node scripts/copy-prisma-client.mjs",
-    "start": "node dist/server.js",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:generate": "prisma generate",
-    "prisma:seed": "tsx prisma/seed.ts",
-    "test": "jest",
-    "test:concurrency": "tsx scripts/concurrency-test.ts"
-  },
+ "scripts": {
+  "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+  "build": "prisma generate && tsc && node scripts/copy-prisma-client.mjs",
+  "start": "node dist/server.js",
+  "prisma:migrate:dev": "prisma migrate dev",
+  "prisma:migrate:deploy": "prisma migrate deploy",
+  "prisma:generate": "prisma generate",
+  "prisma:seed": "tsx prisma/seed.ts",
+  "test": "jest",
+  "test:concurrency": "tsx scripts/concurrency-test.ts"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
